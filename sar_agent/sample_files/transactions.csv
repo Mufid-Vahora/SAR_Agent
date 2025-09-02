@@ -1,0 +1,3 @@
+TransactionID,Date,Amount,Sender,Receiver,Status
+1,2025-08-01,5000,John Doe,XYZ Corp,Completed
+2,2025-08-03,20000,Jane Smith,ABC Ltd,Suspicious

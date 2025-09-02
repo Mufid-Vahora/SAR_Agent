@@ -1,0 +1,16 @@
+
+neo4j==5.26.0
+py2neo==2021.2.4
+pandas==2.2.2
+networkx==3.3
+torch==2.3.1
+torch-geometric==2.5.3
+torch-scatter==2.1.2
+torch-sparse==0.6.18
+plotly==5.22.0
+streamlit==1.37.1
+requests==2.32.3
+pydantic==2.8.2
+typer==0.12.3
+tqdm==4.66.4
+numpy==1.26.4

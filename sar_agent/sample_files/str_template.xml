@@ -1,0 +1,11 @@
+<Report>
+    <Entity>
+        <Name>ABC Ltd</Name>
+        <Type>Company</Type>
+    </Entity>
+    <Transaction>
+        <ID>2</ID>
+        <Amount>20000</Amount>
+        <Status>Suspicious</Status>
+    </Transaction>
+</Report>

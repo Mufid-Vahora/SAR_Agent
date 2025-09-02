@@ -1,0 +1,12 @@
+element:SAR type={http://www.fincen.gov/sar}SARType
+type:RiskLevelType
+type:SARType
+type:InstitutionType
+type:SubjectType
+type:ActivityType
+type:AddressType
+complex_type:SARType content=XsdGroup(model='sequence', occurs=[1, 1])
+complex_type:InstitutionType content=XsdGroup(model='sequence', occurs=[1, 1])
+complex_type:SubjectType content=XsdGroup(model='sequence', occurs=[1, 1])
+complex_type:ActivityType content=XsdGroup(model='sequence', occurs=[1, 1])
+complex_type:AddressType content=XsdGroup(model='sequence', occurs=[1, 1])

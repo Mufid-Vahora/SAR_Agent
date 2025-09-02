@@ -1,0 +1,126 @@
+{
+  "xsd_formats": {
+    "format1_complex": {
+      "name": "Complex Comprehensive Format",
+      "description": "Advanced XSD with nested structures, multiple entities, complex relationships, and detailed validation rules",
+      "file": "format1_complex.xsd",
+      "namespace": "http://www.regulator.gov/complex",
+      "root_element": "ComplexReport",
+      "characteristics": {
+        "structure": "nested",
+        "complexity": "high",
+        "flexibility": "high",
+        "validation": "comprehensive",
+        "relationships": "complex",
+        "entities": "multiple",
+        "transactions": "detailed"
+      },
+      "best_for": [
+        "Complex financial crime investigations",
+        "Multi-entity relationships",
+        "Detailed risk assessments",
+        "Comprehensive compliance reporting",
+        "Regulatory submissions requiring full context",
+        "Cases with multiple transactions and entities"
+      ],
+      "data_requirements": [
+        "Multiple entities with relationships",
+        "Complex transaction patterns",
+        "Detailed risk indicators",
+        "Supporting documentation",
+        "Beneficial ownership information",
+        "Geographic coordinates",
+        "Intermediary details"
+      ],
+      "example_use_cases": [
+        "Money laundering investigations",
+        "Terrorist financing cases",
+        "Complex fraud schemes",
+        "Multi-jurisdictional cases",
+        "High-value transaction monitoring"
+      ]
+    },
+    "format2_simple": {
+      "name": "Simple Flat Format",
+      "description": "Streamlined XSD with flat structure, basic validation, and straightforward field mapping",
+      "file": "format2_simple.xsd",
+      "namespace": "http://www.regulator.gov/simple",
+      "root_element": "SimpleReport",
+      "characteristics": {
+        "structure": "flat",
+        "complexity": "low",
+        "flexibility": "medium",
+        "validation": "basic",
+        "relationships": "simple",
+        "entities": "single",
+        "transactions": "basic"
+      },
+      "best_for": [
+        "Basic suspicious activity reports",
+        "Simple transaction monitoring",
+        "Quick compliance alerts",
+        "Standard regulatory filings",
+        "Cases with limited complexity",
+        "Routine monitoring reports"
+      ],
+      "data_requirements": [
+        "Single primary entity",
+        "Basic transaction information",
+        "Standard risk assessment",
+        "Essential contact details",
+        "Basic location information"
+      ],
+      "example_use_cases": [
+        "Standard SAR filings",
+        "Basic transaction alerts",
+        "Simple compliance reports",
+        "Routine monitoring",
+        "Quick risk assessments"
+      ]
+    }
+  },
+  "format_selection_guidelines": {
+    "choose_format1_complex_when": [
+      "Data contains multiple entities with complex relationships",
+      "Multiple transactions need detailed tracking",
+      "Risk assessment requires comprehensive analysis",
+      "Supporting documents and notes are extensive",
+      "Geographic and intermediary details are important",
+      "Beneficial ownership structure is complex",
+      "Case involves sophisticated financial crime patterns"
+    ],
+    "choose_format2_simple_when": [
+      "Single entity with straightforward structure",
+      "Limited number of transactions",
+      "Basic risk assessment is sufficient",
+      "Minimal supporting documentation",
+      "Standard compliance reporting",
+      "Quick turnaround is required",
+      "Data complexity is low to medium"
+    ]
+  },
+  "data_mapping_examples": {
+    "pipe_format_to_xsd": {
+      "format1_complex": {
+        "description": "Pipe data maps to nested XML structure with complex types",
+        "example": {
+          "input": "EntityName|TechCorp Solutions LLC|Type:Company|Structure:LLC",
+          "output": "<Entity><Name>TechCorp Solutions LLC</Name><Type>Company</Type><LegalStructure>LLC</LegalStructure></Entity>"
+        }
+      },
+      "format2_simple": {
+        "description": "Pipe data maps to flat XML structure with simple types",
+        "example": {
+          "input": "EntityName|TechCorp Solutions LLC|Type:Company|Structure:LLC",
+          "output": "<EntityName>TechCorp Solutions LLC</EntityName><EntityType>Company</EntityType>"
+        }
+      }
+    }
+  },
+  "llm_instructions": {
+    "format_selection": "Analyze the complexity of the input data and choose the appropriate XSD format. Consider the number of entities, relationships, transactions, and overall data complexity.",
+    "data_processing": "Parse pipe-formatted data and map it to the selected XSD structure. Handle complex relationships and nested data appropriately for the chosen format.",
+    "validation": "Ensure generated XML conforms to the selected XSD schema. Apply appropriate validation rules and data type constraints.",
+    "output_format": "Generate well-formed XML that follows the selected XSD structure and includes all relevant data from the pipe-formatted input."
+  }
+}

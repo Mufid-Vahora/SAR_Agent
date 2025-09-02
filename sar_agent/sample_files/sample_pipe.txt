@@ -1,0 +1,6 @@
+EntityName|EntityType|TransactionID|Amount|Status|Date
+ABC Ltd|Company|TXN001|20000|Suspicious|2024-01-15
+XYZ Corp|Corporation|TXN002|50000|Normal|2024-01-16
+DEF Bank|Bank|TXN003|150000|High Risk|2024-01-17
+GHI Ltd|Company|TXN004|7500|Suspicious|2024-01-18
+JKL Corp|Corporation|TXN005|30000|Normal|2024-01-19

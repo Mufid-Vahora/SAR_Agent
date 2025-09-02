@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           xmlns:complex="http://www.regulator.gov/complex"
+           targetNamespace="http://www.regulator.gov/complex"
+           elementFormDefault="qualified">
+
+  <!-- Root Element -->
+  <xs:element name="ComplexReport" type="complex:ComplexReportType"/>
+  
+  <!-- Main Report Type -->
+  <xs:complexType name="ComplexReportType">
+    <xs:sequence>
+      <xs:element name="ReportHeader" type="complex:ReportHeaderType"/>
+      <xs:element name="ReportingInstitution" type="complex:InstitutionType"/>
+      <xs:element name="Entities" type="complex:EntitiesType"/>
+      <xs:element name="Transactions" type="complex:TransactionsType"/>
+      <xs:element name="RiskAssessment" type="complex:RiskAssessmentType"/>
+      <xs:element name="SupportingDocuments" type="complex:DocumentsType" minOccurs="0"/>
+      <xs:element name="ComplianceNotes" type="complex:NotesType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="reportId" type="xs:string" use="required"/>
+    <xs:attribute name="version" type="xs:string" default="1.0"/>
+  </xs:complexType>
+
+  <!-- Report Header -->
+  <xs:complexType name="ReportHeaderType">
+    <xs:sequence>
+      <xs:element name="FilingDate" type="xs:dateTime"/>
+      <xs:element name="ReportType" type="complex:ReportTypeEnum"/>
+      <xs:element name="Priority" type="complex:PriorityEnum"/>
+      <xs:element name="Jurisdiction" type="xs:string"/>
+      <xs:element name="RegulatoryFramework" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Institution Type -->
+  <xs:complexType name="InstitutionType">
+    <xs:sequence>
+      <xs:element name="InstitutionID" type="xs:string"/>
+      <xs:element name="Name" type="xs:string"/>
+      <xs:element name="Type" type="complex:InstitutionTypeEnum"/>
+      <xs:element name="Address" type="complex:AddressType"/>
+      <xs:element name="Contact" type="complex:ContactType"/>
+      <xs:element name="RegulatoryStatus" type="complex:RegulatoryStatusType"/>
+      <xs:element name="ComplianceOfficer" type="complex:PersonType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Entities Type -->
+  <xs:complexType name="EntitiesType">
+    <xs:sequence>
+      <xs:element name="PrimaryEntity" type="complex:EntityType"/>
+      <xs:element name="RelatedEntities" type="complex:RelatedEntitiesType" minOccurs="0"/>
+      <xs:element name="BeneficialOwners" type="complex:BeneficialOwnersType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Entity Type -->
+  <xs:complexType name="EntityType">
+    <xs:sequence>
+      <xs:element name="EntityID" type="xs:string"/>
+      <xs:element name="Name" type="xs:string"/>
+      <xs:element name="Type" type="complex:EntityTypeEnum"/>
+      <xs:element name="LegalStructure" type="xs:string" minOccurs="0"/>
+      <xs:element name="RegistrationNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="TaxID" type="xs:string" minOccurs="0"/>
+      <xs:element name="Address" type="complex:AddressType"/>
+      <xs:element name="Contact" type="complex:ContactType" minOccurs="0"/>
+      <xs:element name="RiskProfile" type="complex:RiskProfileType"/>
+      <xs:element name="ComplianceHistory" type="complex:ComplianceHistoryType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Transactions Type -->
+  <xs:complexType name="TransactionsType">
+    <xs:sequence>
+      <xs:element name="Transaction" type="complex:TransactionType" maxOccurs="unbounded"/>
+      <xs:element name="TransactionSummary" type="complex:TransactionSummaryType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Transaction Type -->
+  <xs:complexType name="TransactionType">
+    <xs:sequence>
+      <xs:element name="TransactionID" type="xs:string"/>
+      <xs:element name="TransactionDate" type="xs:dateTime"/>
+      <xs:element name="Amount" type="complex:AmountType"/>
+      <xs:element name="Currency" type="xs:string"/>
+      <xs:element name="Type" type="complex:TransactionTypeEnum"/>
+      <xs:element name="Status" type="complex:TransactionStatusEnum"/>
+      <xs:element name="Description" type="xs:string"/>
+      <xs:element name="SourceAccount" type="complex:AccountType" minOccurs="0"/>
+      <xs:element name="DestinationAccount" type="complex:AccountType" minOccurs="0"/>
+      <xs:element name="Intermediaries" type="complex:IntermediariesType" minOccurs="0"/>
+      <xs:element name="RiskIndicators" type="complex:RiskIndicatorsType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Risk Assessment Type -->
+  <xs:complexType name="RiskAssessmentType">
+    <xs:sequence>
+      <xs:element name="OverallRisk" type="complex:RiskLevelEnum"/>
+      <xs:element name="RiskFactors" type="complex:RiskFactorsType"/>
+      <xs:element name="MitigationMeasures" type="complex:MitigationMeasuresType" minOccurs="0"/>
+      <xs:element name="RiskScore" type="xs:decimal" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Supporting Types -->
+  <xs:complexType name="AddressType">
+    <xs:sequence>
+      <xs:element name="Street" type="xs:string"/>
+      <xs:element name="City" type="xs:string"/>
+      <xs:element name="State" type="xs:string"/>
+      <xs:element name="PostalCode" type="xs:string"/>
+      <xs:element name="Country" type="xs:string"/>
+      <xs:element name="Coordinates" type="complex:CoordinatesType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ContactType">
+    <xs:sequence>
+      <xs:element name="Name" type="xs:string"/>
+      <xs:element name="Phone" type="xs:string" minOccurs="0"/>
+      <xs:element name="Email" type="xs:string" minOccurs="0"/>
+      <xs:element name="Role" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PersonType">
+    <xs:sequence>
+      <xs:element name="PersonID" type="xs:string"/>
+      <xs:element name="FirstName" type="xs:string"/>
+      <xs:element name="LastName" type="xs:string"/>
+      <xs:element name="DateOfBirth" type="xs:date" minOccurs="0"/>
+      <xs:element name="Nationality" type="xs:string" minOccurs="0"/>
+      <xs:element name="IDDocuments" type="complex:IDDocumentsType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AmountType">
+    <xs:simpleContent>
+      <xs:extension base="xs:decimal">
+        <xs:attribute name="currency" type="xs:string" use="required"/>
+        <xs:attribute name="exchangeRate" type="xs:decimal" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <!-- Enumerations -->
+  <xs:simpleType name="ReportTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Initial"/>
+      <xs:enumeration value="Amendment"/>
+      <xs:enumeration value="Continuation"/>
+      <xs:enumeration value="Termination"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PriorityEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Low"/>
+      <xs:enumeration value="Medium"/>
+      <xs:enumeration value="High"/>
+      <xs:enumeration value="Critical"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="RiskLevelEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Low"/>
+      <xs:enumeration value="Medium"/>
+      <xs:enumeration value="High"/>
+      <xs:enumeration value="Critical"/>
+      <xs:enumeration value="Suspicious"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="TransactionTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Wire"/>
+      <xs:enumeration value="ACH"/>
+      <xs:enumeration value="Check"/>
+      <xs:enumeration value="Cash"/>
+      <xs:enumeration value="Cryptocurrency"/>
+      <xs:enumeration value="Other"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="TransactionStatusEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Pending"/>
+      <xs:enumeration value="Completed"/>
+      <xs:enumeration value="Failed"/>
+      <xs:enumeration value="Reversed"/>
+      <xs:enumeration value="Suspicious"/>
+      <xs:enumeration value="UnderReview"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Additional complex types for comprehensive coverage -->
+  <xs:complexType name="RelatedEntitiesType">
+    <xs:sequence>
+      <xs:element name="RelatedEntity" type="complex:EntityType" maxOccurs="unbounded"/>
+      <xs:element name="RelationshipType" type="xs:string"/>
+      <xs:element name="RelationshipStrength" type="xs:decimal" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="BeneficialOwnersType">
+    <xs:sequence>
+      <xs:element name="BeneficialOwner" type="complex:PersonType" maxOccurs="unbounded"/>
+      <xs:element name="OwnershipPercentage" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ControlType" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AccountType">
+    <xs:sequence>
+      <xs:element name="AccountNumber" type="xs:string"/>
+      <xs:element name="AccountType" type="xs:string"/>
+      <xs:element name="Institution" type="xs:string"/>
+      <xs:element name="Balance" type="complex:AmountType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RiskIndicatorsType">
+    <xs:sequence>
+      <xs:element name="RiskIndicator" type="xs:string" maxOccurs="unbounded"/>
+      <xs:element name="Confidence" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="Source" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RiskFactorsType">
+    <xs:sequence>
+      <xs:element name="RiskFactor" type="xs:string" maxOccurs="unbounded"/>
+      <xs:element name="Severity" type="complex:RiskLevelEnum"/>
+      <xs:element name="Description" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MitigationMeasuresType">
+    <xs:sequence>
+      <xs:element name="Measure" type="xs:string" maxOccurs="unbounded"/>
+      <xs:element name="ImplementationDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="Effectiveness" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ComplianceHistoryType">
+    <xs:sequence>
+      <xs:element name="Violation" type="xs:string" maxOccurs="unbounded"/>
+      <xs:element name="Date" type="xs:date" minOccurs="0"/>
+      <xs:element name="Resolution" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RegulatoryStatusType">
+    <xs:sequence>
+      <xs:element name="Status" type="xs:string"/>
+      <xs:element name="LicenseNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="ExpirationDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="Restrictions" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CoordinatesType">
+    <xs:sequence>
+      <xs:element name="Latitude" type="xs:decimal"/>
+      <xs:element name="Longitude" type="xs:decimal"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="IDDocumentsType">
+    <xs:sequence>
+      <xs:element name="Document" type="xs:string" maxOccurs="unbounded"/>
+      <xs:element name="DocumentType" type="xs:string" minOccurs="0"/>
+      <xs:element name="IssueDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="ExpiryDate" type="xs:date" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DocumentsType">
+    <xs:sequence>
+      <xs:element name="Document" type="xs:string" maxOccurs="unbounded"/>
+      <xs:element name="DocumentType" type="xs:string" minOccurs="0"/>
+      <xs:element name="Reference" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="NotesType">
+    <xs:sequence>
+      <xs:element name="Note" type="xs:string" maxOccurs="unbounded"/>
+      <xs:element name="Author" type="xs:string" minOccurs="0"/>
+      <xs:element name="Timestamp" type="xs:dateTime" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TransactionSummaryType">
+    <xs:sequence>
+      <xs:element name="TotalTransactions" type="xs:integer"/>
+      <xs:element name="TotalAmount" type="complex:AmountType"/>
+      <xs:element name="HighRiskCount" type="xs:integer"/>
+      <xs:element name="SuspiciousCount" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="IntermediariesType">
+    <xs:sequence>
+      <xs:element name="Intermediary" type="xs:string" maxOccurs="unbounded"/>
+      <xs:element name="Role" type="xs:string" minOccurs="0"/>
+      <xs:element name="Fee" type="complex:AmountType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RiskProfileType">
+    <xs:sequence>
+      <xs:element name="RiskLevel" type="complex:RiskLevelEnum"/>
+      <xs:element name="RiskScore" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="LastAssessment" type="xs:date" minOccurs="0"/>
+      <xs:element name="Factors" type="xs:string" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SAR/STR Reporting Agent</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>SAR/STR Reporting Agent</h1>
+
+    <div class="section">
+        <h2>🔎 LLM Query</h2>
+        <textarea id="prompt" placeholder="Ask about SAR/STR..."></textarea><br>
+        <button onclick="sendPrompt()">Generate</button>
+        <pre id="llmResponse"></pre>
+    </div>
+
+    <div class="section">
+        <h2>📂 File Upload</h2>
+        <input type="file" id="fileInput">
+        <button onclick="uploadFile()">Upload</button>
+        <pre id="fileResponse"></pre>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

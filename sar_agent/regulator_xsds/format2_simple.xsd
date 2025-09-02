@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           xmlns:simple="http://www.regulator.gov/simple"
+           targetNamespace="http://www.regulator.gov/simple"
+           elementFormDefault="qualified">
+
+  <!-- Root Element -->
+  <xs:element name="SimpleReport" type="simple:SimpleReportType"/>
+  
+  <!-- Main Report Type - Flat Structure -->
+  <xs:complexType name="SimpleReportType">
+    <xs:sequence>
+      <xs:element name="ReportID" type="xs:string"/>
+      <xs:element name="FilingDate" type="xs:date"/>
+      <xs:element name="ReportType" type="simple:ReportTypeEnum"/>
+      <xs:element name="Priority" type="simple:PriorityEnum"/>
+      
+      <!-- Institution Information -->
+      <xs:element name="InstitutionName" type="xs:string"/>
+      <xs:element name="InstitutionType" type="xs:string"/>
+      <xs:element name="InstitutionAddress" type="xs:string"/>
+      <xs:element name="InstitutionContact" type="xs:string"/>
+      
+      <!-- Entity Information -->
+      <xs:element name="EntityName" type="xs:string"/>
+      <xs:element name="EntityType" type="xs:string"/>
+      <xs:element name="EntityAddress" type="xs:string"/>
+      <xs:element name="EntityID" type="xs:string" minOccurs="0"/>
+      <xs:element name="EntityTaxID" type="xs:string" minOccurs="0"/>
+      
+      <!-- Transaction Information -->
+      <xs:element name="TransactionID" type="xs:string"/>
+      <xs:element name="TransactionDate" type="xs:date"/>
+      <xs:element name="TransactionAmount" type="xs:decimal"/>
+      <xs:element name="TransactionCurrency" type="xs:string"/>
+      <xs:element name="TransactionType" type="simple:TransactionTypeEnum"/>
+      <xs:element name="TransactionStatus" type="simple:TransactionStatusEnum"/>
+      <xs:element name="TransactionDescription" type="xs:string"/>
+      
+      <!-- Account Information -->
+      <xs:element name="SourceAccount" type="xs:string" minOccurs="0"/>
+      <xs:element name="DestinationAccount" type="xs:string" minOccurs="0"/>
+      <xs:element name="AccountType" type="xs:string" minOccurs="0"/>
+      
+      <!-- Risk Assessment -->
+      <xs:element name="RiskLevel" type="simple:RiskLevelEnum"/>
+      <xs:element name="RiskScore" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="RiskFactors" type="xs:string" minOccurs="0"/>
+      
+      <!-- Suspicious Activity Details -->
+      <xs:element name="SuspiciousActivityType" type="xs:string"/>
+      <xs:element name="SuspiciousActivitySubtype" type="xs:string" minOccurs="0"/>
+      <xs:element name="SuspiciousActivityNarrative" type="xs:string"/>
+      <xs:element name="ActivityStartDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="ActivityEndDate" type="xs:date" minOccurs="0"/>
+      
+      <!-- Contact Information -->
+      <xs:element name="ContactName" type="xs:string"/>
+      <xs:element name="ContactPhone" type="xs:string" minOccurs="0"/>
+      <xs:element name="ContactEmail" type="xs:string" minOccurs="0"/>
+      <xs:element name="ContactAddress" type="xs:string" minOccurs="0"/>
+      
+      <!-- Location Information -->
+      <xs:element name="TransactionLocation" type="xs:string" minOccurs="0"/>
+      <xs:element name="LocationAddress" type="xs:string" minOccurs="0"/>
+      <xs:element name="LocationCity" type="xs:string" minOccurs="0"/>
+      <xs:element name="LocationState" type="xs:string" minOccurs="0"/>
+      <xs:element name="LocationCountry" type="xs:string" minOccurs="0"/>
+      
+      <!-- Additional Fields -->
+      <xs:element name="Notes" type="xs:string" minOccurs="0"/>
+      <xs:element name="Tags" type="xs:string" minOccurs="0"/>
+      <xs:element name="CustomField1" type="xs:string" minOccurs="0"/>
+      <xs:element name="CustomField2" type="xs:string" minOccurs="0"/>
+      <xs:element name="CustomField3" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Enumerations -->
+  <xs:simpleType name="ReportTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Initial"/>
+      <xs:enumeration value="Amendment"/>
+      <xs:enumeration value="Continuation"/>
+      <xs:enumeration value="Termination"/>
+      <xs:enumeration value="Update"/>
+      <xs:enumeration value="Correction"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PriorityEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Low"/>
+      <xs:enumeration value="Medium"/>
+      <xs:enumeration value="High"/>
+      <xs:enumeration value="Critical"/>
+      <xs:enumeration value="Urgent"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="RiskLevelEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Low"/>
+      <xs:enumeration value="Medium"/>
+      <xs:enumeration value="High"/>
+      <xs:enumeration value="Critical"/>
+      <xs:enumeration value="Suspicious"/>
+      <xs:enumeration value="Unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="TransactionTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Wire"/>
+      <xs:enumeration value="ACH"/>
+      <xs:enumeration value="Check"/>
+      <xs:enumeration value="Cash"/>
+      <xs:enumeration value="Cryptocurrency"/>
+      <xs:enumeration value="CreditCard"/>
+      <xs:enumeration value="DebitCard"/>
+      <xs:enumeration value="MoneyOrder"/>
+      <xs:enumeration value="TravelersCheck"/>
+      <xs:enumeration value="Other"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="TransactionStatusEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Pending"/>
+      <xs:enumeration value="Completed"/>
+      <xs:enumeration value="Failed"/>
+      <xs:enumeration value="Reversed"/>
+      <xs:enumeration value="Suspicious"/>
+      <xs:enumeration value="UnderReview"/>
+      <xs:enumeration value="Cancelled"/>
+      <xs:enumeration value="Held"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Simple Validation Rules -->
+  <xs:simpleType name="AmountType">
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0.01"/>
+      <xs:maxInclusive value="999999999.99"/>
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PhoneType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[\+]?[0-9\-\s\(\)]{10,20}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="EmailType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="DateType">
+    <xs:restriction base="xs:date">
+      <xs:minInclusive value="1900-01-01"/>
+      <xs:maxInclusive value="2100-12-31"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="IDType">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="100"/>
+      <xs:pattern value="[A-Za-z0-9\-_\.]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

@@ -1,0 +1,133 @@
+element:schema type=None
+element:anyAttribute type={http://www.w3.org/2001/XMLSchema}wildcard
+element:complexContent type=None
+element:simpleContent type=None
+element:complexType type={http://www.w3.org/2001/XMLSchema}topLevelComplexType
+element:element type={http://www.w3.org/2001/XMLSchema}topLevelElement
+element:all type={http://www.w3.org/2001/XMLSchema}all
+element:choice type={http://www.w3.org/2001/XMLSchema}explicitGroup
+element:sequence type={http://www.w3.org/2001/XMLSchema}explicitGroup
+element:group type={http://www.w3.org/2001/XMLSchema}namedGroup
+element:any type=None
+element:attribute type={http://www.w3.org/2001/XMLSchema}topLevelAttribute
+element:attributeGroup type={http://www.w3.org/2001/XMLSchema}namedAttributeGroup
+element:include type=None
+element:redefine type=None
+element:import type=None
+element:selector type=None
+element:field type=None
+element:unique type={http://www.w3.org/2001/XMLSchema}keybase
+element:key type={http://www.w3.org/2001/XMLSchema}keybase
+element:keyref type=None
+element:notation type=None
+element:appinfo type=None
+element:documentation type=None
+element:annotation type=None
+element:simpleType type={http://www.w3.org/2001/XMLSchema}topLevelSimpleType
+element:restriction type=None
+element:list type=None
+element:union type=None
+element:minExclusive type={http://www.w3.org/2001/XMLSchema}facet
+element:minInclusive type={http://www.w3.org/2001/XMLSchema}facet
+element:maxExclusive type={http://www.w3.org/2001/XMLSchema}facet
+element:maxInclusive type={http://www.w3.org/2001/XMLSchema}facet
+element:totalDigits type=None
+element:fractionDigits type={http://www.w3.org/2001/XMLSchema}numFacet
+element:length type={http://www.w3.org/2001/XMLSchema}numFacet
+element:minLength type={http://www.w3.org/2001/XMLSchema}numFacet
+element:maxLength type={http://www.w3.org/2001/XMLSchema}numFacet
+element:enumeration type={http://www.w3.org/2001/XMLSchema}noFixedFacet
+element:whiteSpace type=None
+element:pattern type=None
+type:formChoice
+type:reducedDerivationControl
+type:derivationSet
+type:typeDerivationControl
+type:fullDerivationSet
+type:allNNI
+type:blockSet
+type:namespaceList
+type:public
+type:string
+type:boolean
+type:float
+type:double
+type:decimal
+type:duration
+type:dateTime
+type:time
+type:date
+type:gYearMonth
+type:gYear
+type:gMonthDay
+type:gDay
+type:gMonth
+type:hexBinary
+type:base64Binary
+type:anyURI
+type:QName
+type:NOTATION
+type:normalizedString
+type:token
+type:language
+type:IDREFS
+type:ENTITIES
+type:NMTOKEN
+type:NMTOKENS
+type:Name
+type:NCName
+type:ID
+type:IDREF
+type:ENTITY
+type:integer
+type:nonPositiveInteger
+type:negativeInteger
+type:long
+type:int
+type:short
+type:byte
+type:nonNegativeInteger
+type:unsignedLong
+type:unsignedInt
+type:unsignedShort
+type:unsignedByte
+type:positiveInteger
+type:derivationControl
+type:simpleDerivationSet
+type:openAttrs
+type:annotated
+type:attribute
+type:topLevelAttribute
+type:complexType
+type:topLevelComplexType
+type:localComplexType
+type:restrictionType
+type:complexRestrictionType
+type:extensionType
+type:simpleRestrictionType
+type:simpleExtensionType
+type:element
+type:topLevelElement
+type:localElement
+type:group
+type:realGroup
+type:namedGroup
+type:groupRef
+type:explicitGroup
+type:simpleExplicitGroup
+type:narrowMaxMin
+type:all
+type:wildcard
+type:attributeGroup
+type:namedAttributeGroup
+type:attributeGroupRef
+type:keybase
+type:anyType
+type:simpleType
+type:topLevelSimpleType
+type:localSimpleType
+type:facet
+type:noFixedFacet
+type:numFacet
+type:anySimpleType
+type:anyAtomicType

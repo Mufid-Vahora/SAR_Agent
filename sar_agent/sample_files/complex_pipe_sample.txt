@@ -1,0 +1,125 @@
+# Complex Pipe-Formatted Data Sample
+# Format: FieldName|Value|AdditionalInfo|Metadata
+# This demonstrates complex structures that can be mapped to both XSD formats
+
+# Report Header Information
+ReportID|SAR-2024-001|Format:Complex|Priority:High
+FilingDate|2024-12-15T10:30:00Z|Timezone:UTC|Format:ISO8601
+ReportType|Initial|Amendment:false|Continuation:false
+Priority|High|Escalation:true|Urgency:Immediate
+
+# Institution Details
+InstitutionName|Global Financial Services Inc|Type:Bank|License:FDIC-12345
+InstitutionType|Commercial Bank|Category:Retail|Size:Large
+InstitutionAddress|123 Financial District, New York, NY 10001|Country:USA|Coordinates:40.7128,-74.0060
+InstitutionContact|Compliance Department|Phone:+1-555-0123|Email:compliance@gfs.com
+RegulatoryStatus|Active|LicenseExpiry:2025-12-31|Restrictions:None
+
+# Primary Entity Information
+EntityName|TechCorp Solutions LLC|Type:Company|Structure:LLC
+EntityType|Technology Company|Industry:Software|RiskProfile:Medium
+EntityAddress|456 Innovation Drive, San Francisco, CA 94105|Country:USA|Coordinates:37.7749,-122.4194
+EntityID|EIN-12-3456789|TaxID:12-3456789|Registration:CA-LLC-2020-001
+LegalStructure|Limited Liability Company|State:California|FormationDate:2020-03-15
+
+# Related Entities (Complex Relationships)
+RelatedEntity1|TechCorp Holdings Inc|Type:Parent Company|Relationship:100% Ownership
+RelatedEntity2|TechCorp International Ltd|Type:Subsidiary|Relationship:Majority Control
+RelatedEntity3|Innovation Ventures LLC|Type:Joint Venture|Relationship:50% Partnership
+RelationshipStrength1|100.0|Confidence:High|Source:Corporate Records
+RelationshipStrength2|85.0|Confidence:Medium|Source:Public Filings
+RelationshipStrength3|50.0|Confidence:High|Source:Partnership Agreement
+
+# Beneficial Owners
+BeneficialOwner1|John Smith|Type:Individual|Ownership:45%|Control:Majority
+BeneficialOwner2|Sarah Johnson|Type:Individual|Ownership:35%|Control:Significant
+BeneficialOwner3|TechCorp Holdings Inc|Type:Corporate|Ownership:20%|Control:Minority
+OwnerDOB1|1980-05-15|Nationality:USA|IDType:Passport|IDNumber:US123456789
+OwnerDOB2|1985-08-22|Nationality:USA|IDType:Driver License|IDNumber:CA-A1234567
+
+# Transaction Details (Multiple Transactions)
+TransactionID1|TXN-001|Type:Wire|Status:Completed|Amount:50000.00
+TransactionID2|TXN-002|Type:ACH|Status:Suspicious|Amount:75000.00
+TransactionID3|TXN-003|Type:Cryptocurrency|Status:UnderReview|Amount:25000.00
+TransactionDate1|2024-12-10T14:30:00Z|Timezone:UTC|Format:ISO8601
+TransactionDate2|2024-12-12T09:15:00Z|Timezone:UTC|Format:ISO8601
+TransactionDate3|2024-12-14T16:45:00Z|Timezone:UTC|Format:ISO8601
+TransactionAmount1|50000.00|Currency:USD|ExchangeRate:1.0|Source:Bank Records
+TransactionAmount2|75000.00|Currency:USD|ExchangeRate:1.0|Source:Bank Records
+TransactionAmount3|25000.00|Currency:USD|ExchangeRate:1.0|Source:Crypto Exchange
+TransactionCurrency|USD|Primary:true|Conversion:None|Risk:Low
+
+# Account Information
+SourceAccount1|1234567890|Type:Checking|Institution:Local Bank|Balance:125000.00
+SourceAccount2|0987654321|Type:Business|Institution:Local Bank|Balance:250000.00
+DestinationAccount1|1112223333|Type:Investment|Institution:Investment Bank|Balance:Unknown
+DestinationAccount2|4445556666|Type:Offshore|Institution:Offshore Bank|Balance:Unknown
+AccountType|Business Checking|Category:Commercial|RiskLevel:Medium|Monitoring:Enhanced
+
+# Risk Assessment
+RiskLevel|High|Score:8.5|Threshold:7.0|Escalation:Required
+RiskScore|8.5|Scale:1-10|Methodology:Proprietary|LastUpdate:2024-12-15
+RiskFactors|Unusual Transaction Pattern|Severity:High|Confidence:85%|Source:AI Analysis
+RiskFactors|Multiple High-Value Transfers|Severity:Medium|Confidence:90%|Source:Pattern Recognition
+RiskFactors|Offshore Destination|Severity:High|Confidence:95%|Source:Geographic Analysis
+
+# Suspicious Activity Details
+SuspiciousActivityType|Money Laundering|Category:Financial Crime|Subcategory:Structuring
+SuspiciousActivitySubtype|Transaction Structuring|Method:Multiple Small Transfers|Pattern:Known
+SuspiciousActivityNarrative|Multiple high-value transactions to offshore accounts with no apparent business purpose. Transactions appear to be structured to avoid reporting thresholds. Entity has limited business history and complex ownership structure.
+ActivityStartDate|2024-12-01|Duration:15 days|Frequency:Daily|Pattern:Regular
+ActivityEndDate|2024-12-15|TotalTransactions:15|TotalAmount:150000.00|Trend:Increasing
+
+# Contact Information
+ContactName|Michael Compliance Officer|Role:Compliance Manager|Department:Risk Management
+ContactPhone|+1-555-9876|Extension:123|Mobile:+1-555-9877|Emergency:+1-555-9999
+ContactEmail|michael.compliance@gfs.com|Primary:true|Backup:compliance@gfs.com|Format:Business
+ContactAddress|123 Financial District, New York, NY 10001|Floor:15|Suite:1501|MailStop:Compliance
+
+# Location Information
+TransactionLocation|Online Banking|Type:Digital|Platform:Web|Device:Unknown
+LocationAddress|456 Innovation Drive, San Francisco, CA 94105|Primary:true|Secondary:None
+LocationCity|San Francisco|State:CA|Country:USA|Timezone:PST
+LocationState|California|Region:West Coast|TimeZone:PST|DST:Yes
+LocationCountry|USA|Region:North America|Currency:USD|Risk:Medium
+
+# Intermediaries
+Intermediary1|Payment Processor Inc|Role:Payment Gateway|Fee:2.5%|Type:Third Party
+Intermediary2|Crypto Exchange Ltd|Role:Digital Asset Exchange|Fee:1.0%|Type:Foreign
+Intermediary3|Offshore Bank Corp|Role:Correspondent Bank|Fee:0.5%|Type:Offshore
+IntermediaryRole1|Payment Processing|Responsibility:Transaction Routing|Liability:Limited
+IntermediaryRole2|Asset Conversion|Responsibility:Crypto to Fiat|Liability:Full
+IntermediaryRole3|International Transfer|Responsibility:Cross-border|Liability:Shared
+
+# Supporting Documents
+Document1|Corporate Registration|Type:Legal|Date:2020-03-15|Status:Valid
+Document2|Tax Returns|Type:Financial|Date:2023-04-15|Status:Filed
+Document3|Bank Statements|Type:Financial|Date:2024-12-01|Status:Current
+Document4|Transaction Records|Type:Operational|Date:2024-12-15|Status:Complete
+DocumentReference1|CA-LLC-2020-001|Source:Secretary of State|Verification:Confirmed
+DocumentReference2|2023-1040|Source:IRS|Verification:Pending
+DocumentReference3|BS-2024-12|Source:Local Bank|Verification:Confirmed
+
+# Compliance Notes
+Note1|Initial review indicates potential structuring activity. Multiple transactions just below reporting thresholds.
+Note2|Entity has complex ownership structure with offshore connections. Requires enhanced due diligence.
+Note3|Transactions show unusual pattern for technology company. No apparent business justification.
+NoteAuthor1|Michael Compliance Officer|Timestamp:2024-12-15T10:30:00Z|Role:Compliance Manager
+NoteAuthor2|Sarah Risk Analyst|Timestamp:2024-12-15T11:15:00Z|Role:Risk Analyst
+NoteAuthor3|John Legal Counsel|Timestamp:2024-12-15T14:00:00Z|Role:Legal Counsel
+
+# Custom Fields for Extensibility
+CustomField1|Industry Risk Score|Value:7.8|Scale:1-10|Source:External Vendor
+CustomField2|Geographic Risk|Value:High|Reason:Offshore Transactions|Mitigation:Enhanced Monitoring
+CustomField3|Business Model Risk|Value:Medium|Reason:Technology Sector|Mitigation:Regular Review
+
+# Tags and Classification
+Tags|High Risk|Money Laundering|Structuring|Offshore|Technology|Complex Ownership
+Tags|Enhanced Due Diligence|Suspicious Pattern|Multiple Entities|International|Regulatory Focus
+Tags|Compliance Alert|Risk Escalation|Investigation Required|Documentation Complete|Report Filed
+
+# Metadata and Processing Information
+ProcessingTimestamp|2024-12-15T15:30:00Z|System:Compliance Engine|Version:2.1.0
+DataQualityScore|95.5|Completeness:98%|Accuracy:93%|Timeliness:95%
+ValidationStatus|Passed|Checks:15|Errors:0|Warnings:2|Format:Valid
+ExportFormat|XML|Schema:Complex|Namespace:http://www.regulator.gov/complex|Version:1.0

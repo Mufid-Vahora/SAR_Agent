@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           xmlns:fincen="http://www.fincen.gov/sar"
+           targetNamespace="http://www.fincen.gov/sar"
+           elementFormDefault="qualified">
+
+  <xs:element name="SAR" type="fincen:SARType"/>
+  
+  <xs:complexType name="SARType">
+    <xs:sequence>
+      <xs:element name="FilingInstitution" type="fincen:InstitutionType"/>
+      <xs:element name="Subject" type="fincen:SubjectType" maxOccurs="unbounded"/>
+      <xs:element name="SuspiciousActivity" type="fincen:ActivityType"/>
+      <xs:element name="FilingDate" type="xs:date"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="InstitutionType">
+    <xs:sequence>
+      <xs:element name="Name" type="xs:string"/>
+      <xs:element name="Type" type="xs:string"/>
+      <xs:element name="Address" type="fincen:AddressType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SubjectType">
+    <xs:sequence>
+      <xs:element name="Name" type="xs:string"/>
+      <xs:element name="Type" type="xs:string"/>
+      <xs:element name="Address" type="fincen:AddressType" minOccurs="0"/>
+      <xs:element name="ID" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ActivityType">
+    <xs:sequence>
+      <xs:element name="TransactionID" type="xs:string"/>
+      <xs:element name="Amount" type="xs:decimal"/>
+      <xs:element name="Date" type="xs:date"/>
+      <xs:element name="Description" type="xs:string"/>
+      <xs:element name="RiskLevel" type="fincen:RiskLevelType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AddressType">
+    <xs:sequence>
+      <xs:element name="Street" type="xs:string"/>
+      <xs:element name="City" type="xs:string"/>
+      <xs:element name="State" type="xs:string"/>
+      <xs:element name="ZipCode" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="RiskLevelType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Low"/>
+      <xs:enumeration value="Medium"/>
+      <xs:enumeration value="High"/>
+      <xs:enumeration value="Suspicious"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
