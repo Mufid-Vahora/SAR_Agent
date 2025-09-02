@@ -88,8 +88,8 @@ async def call_llm_filler(pipe_data: str, use_rag: bool) -> dict:
         async with httpx.AsyncClient(timeout=60) as client:
             r = await client.post(f"{LLM_FILLER_URL}/fill_with_pipe_data", json={
                 "pipe_data": pipe_data,
-                "use_rag": use_rag,
-                "max_new_tokens": 1024
+                "use_rag": False,
+                "max_new_tokens": 128
             })
             r.raise_for_status()
             return r.json()
