@@ -20,9 +20,9 @@ lxml==5.2.2
 
 # RAG / embeddings
 sentence-transformers==3.0.1
-faiss-cpu==1.8.0.post1
+faiss-cpu==1.12.0
 numpy==1.26.4
-torch==2.3.1
+torch==2.5.1
 
 # LLMs
 transformers==4.43.3
